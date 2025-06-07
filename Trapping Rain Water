@@ -1,0 +1,21 @@
+class Solution {
+    public int trap(int[] height) {
+        int lb=0;
+        int rb=0;
+        int waterTap=0;
+        int l=0;
+        int r=height.length-1;
+        while(l<r){
+             lb= Math.max(lb,height[l]);
+             rb=Math.max(rb,height[r]);
+             if(lb<rb){
+                waterTap=waterTap+lb-height[l];
+                l++;
+             }else{
+                 waterTap=waterTap+rb-height[r];
+                r--;
+             }
+        }
+        return waterTap;
+    }
+}
