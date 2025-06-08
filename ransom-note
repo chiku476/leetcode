@@ -1,0 +1,19 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+       int[] ransomNotecount= new int[26];
+       int[] magazinecount= new int[26];
+
+       for(int i=0;i<ransomNote.length();i++){
+        ransomNotecount[ransomNote.codePointAt(i) -97]=ransomNotecount[ransomNote.codePointAt(i)-97]+1;
+       }
+           for(int i=0;i<magazine.length();i++){
+           magazinecount[magazine.codePointAt(i)-97]=magazinecount[magazine.codePointAt(i)-97]+1;
+       }
+       for(int i=0;i<26;i++){
+          if(ransomNotecount[i]!=0 && magazinecount[i] < ransomNotecount[i] ){
+            return false;
+          }
+       }
+       return true;
+   }
+}
