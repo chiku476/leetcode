@@ -1,0 +1,21 @@
+class Solution {
+    public int[] getAverages(int[] nums, int k) {
+        if(k==0)
+        return nums;
+        int size=nums.length;
+        long[] sufArr= new long[size];
+        int[] ans= new int[size];
+        sufArr[0]=nums[0];
+        for(int i=1;i<size;i++){
+            sufArr[i]=sufArr[i-1]+nums[i];
+        }
+        for(int i =0; i<size;i++){
+              if(i<k || i>=size-k){
+                ans[i]=-1;
+              } else {
+                 ans[i]=(int)((sufArr[i+k]-(sufArr[i-k]-nums[i-k]))/(2*k+1));
+              }
+        }
+        return ans;
+    }
+}
