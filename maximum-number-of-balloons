@@ -1,0 +1,14 @@
+class Solution {
+    public int maxNumberOfBalloons(String text) {
+        int[] fre= new int[26];
+        int a=(int)'a'-97;
+        int b=(int)'b'-97;
+        int l=(int)'l'-97;
+        int o=(int)'o'-97;
+        int n=(int)'n'-97;
+        for(int i=0;i<text.length();i++){
+            fre[(int)text.charAt(i)-97]=fre[(int)text.charAt(i)-97]+1;
+        }
+      return  Math.min(Math.min(Math.min(fre[a],fre[b]),Math.min(fre[l]/2,fre[o]/2)),fre[n]);
+    }
+}
