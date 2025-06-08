@@ -1,0 +1,16 @@
+class Solution {
+    public int minStartValue(int[] nums) {
+        int[] prefixsum=new int[nums.length];
+        int sum=nums[0];
+        int minS=sum;
+        for(int x=1;x<nums.length;x++){
+         sum+=nums[x];
+          minS=Math.min(minS,sum);
+        }
+        if(minS>0){
+            return 1;
+        }else{
+            return minS*-1 +1;
+        }
+    }
+}
