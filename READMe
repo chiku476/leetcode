@@ -1,0 +1,28 @@
+In Java, when you create an int[] array like this:
+
+java
+Copy
+Edit
+int[] map = new int[26];
+✅ It is already initialized with zeros by default. So you don't need to do anything extra.
+
+🔍 Explanation:
+In Java:
+
+All primitive type arrays (int, long, double, etc.) are initialized to their default values.
+
+For int, the default is 0.
+
+✅ Maximum value of int:
+Copy
+Edit
+2,147,483,647
+✅ In powers of 10 (approximate):
+Copy
+Edit
+≈ 2.1 × 10⁹
+This is because a 32-bit signed integer ranges from:
+
+Minimum: −2³¹ = −2,147,483,648
+
+Maximum: 2³¹−1 = 2,147,483,647
