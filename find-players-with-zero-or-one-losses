@@ -1,0 +1,37 @@
+class Solution {
+    public List<List<Integer>> findWinners(int[][] matches) {
+        List<Integer> winL = new ArrayList<>();
+        List<Integer> losL = new ArrayList<>();
+        Map<Integer,Integer> win = new HashMap<>();
+        Map<Integer,Integer> los = new HashMap<>();
+        Set<Integer> player = new HashSet<>();
+        for(int x=0;x< matches.length;x++){
+
+            player.add(matches[x][0]);
+            player.add(matches[x][1]);
+            // if(win.contains(matches[x][0])){
+            //     win.put(matches[x][0],win.get(matches[x][0])+1);
+            // }else{
+            //     win.put(matches[x][0],1);
+            // }
+            if(los.containsKey(matches[x][1])){
+                los.put(matches[x][1],los.get(matches[x][1])+1);
+            }else{
+                los.put(matches[x][1],1);
+            }
+        }
+         for(int z:player){
+            if(los.containsKey(z) && los.get(z)==1){
+                losL.add(z);
+            }else if(!los.containsKey(z)){
+                winL.add(z);
+            }
+         }
+         List<List<Integer>> result = new ArrayList<>();
+         Collections.sort(winL);
+         Collections.sort(losL);
+         result.add(winL);
+         result.add(losL);
+         return result;
+    }
+}
